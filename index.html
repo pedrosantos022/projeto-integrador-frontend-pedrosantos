@@ -6,24 +6,65 @@
     <title>Projeto Integrador</title>
 </head>
 <body>
-    <h1>Espaço do revendedor</h1>
-    <p>É uma vitrine digital para que revendedores possam exibir seu estoque e gerenciar suas vendas</p>
-    <ul>
-        <li>Catálogo e ofertas</li>
-        <li>Meu estoque</li>
-        <li>Pedidos Via WhatsApp</li>
-    </ul>
-    <table>
-        <tr>
-            <th>Fragâncias</th>
-            <th>Natura</th>
-        </tr>
-        <tr>
-            <td>Perfumes</td>
-            <td>Natura</td>
-        </tr>
-    </table>
-    <a href="https://www.natura.com.br/" target="_blank" rel="noopener noreferrer">Site da natura</a>
-    <img src="assets/images/essencial.png" alt="Perfurme essencial" width="300">
+    <header>
+        <h1>Espaço do revendedor</h1>
+        <p>É uma vitrine digital para que revendedores possam exibir seu estoque e gerenciar suas vendas</p>
+    </header>
+    <main>
+        <section>
+            <h2>Catálogo e Destaques</h2>
+            <ul>
+                <li>Catálogo e ofertas</li>
+                <li>Meu estoque</li>
+                <li>Pedidos Via WhatsApp</li>
+            </ul>
+            <table>
+                <tr>
+                    <th>Fragâncias</th>
+                    <th>Natura</th>
+                </tr>
+                <tr>
+                    <td>Perfumes</td>
+                    <td>Natura</td>
+                </tr>
+            </table>
+            <img src="assets/images/essencial.png" alt="Perfurme essencial" width="300">
+        </section>
+        <section>
+            <h2>Solicitar Pedido</h2>
+            
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Dados do cliente e produto</legend>
+                    
+                    <div>
+                        <label for="nomeCliente">Nome completo: </label>
+                        <input type="text" id="nomeCliente" name="nome" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="emailCliente">E-mail de contato:</label>
+                        <input type="email" id="emailCliente" name="email" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="telefone">WhatsApp (somente números):</label>
+                        <input type="tel" id="telefone" name="telefone" pattern="[0-9]{11}" placeholder="Ex: 83999999999">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="quantidade">Quantidade desejada:</label>
+                        <input type="number" id="quantidade" name="quantidade" min="1" max="50">
+                    </div>
+                    <br>
+                    <button type="submit">Enviar Solicitação</button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+    <footer>
+        <a href="https://www.natura.com.br/" target="_blank" rel="noopener noreferrer">Site da natura</a>
+    </footer>
 </body>
 </html>
