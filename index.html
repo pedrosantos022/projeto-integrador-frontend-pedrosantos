@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +7,159 @@
 </head>
 <body>
 
-    <figure>
-        <img src="assets/images/planejamento-financeiro.png" alt="Ilustração de um gráfico de barras em crescimento acompanhado de uma calculadora e moedas, representando o controle financeiro mensal" width="50">
-        <figcaption>Garanta sua saúde financeira!!<figcaption>
-    </figure>
-    <h1>Painel de Controle Financeiro Pessoal</h1>
+    <header>
+        <figure>
+            <img src="assets/images/planejamento-financeiro.png" alt="Ilustração de um gráfico de barras em crescimento acompanhado de uma calculadora e moedas, representando o controle financeiro mensal" width="50">
+            <figcaption>Garanta sua saúde financeira!!</figcaption>
+        </figure>
+        <h1>Painel de Controle Financeiro Pessoal</h1>
         <p>Aplicação web desenvolvida para o gerenciamento financeiro</p>
-    <ul>
-        <li><strong>Essenciais (50%):</strong> Moradia, alimentação, transporte e contas fixas.</li>
-        <li><strong>Estilo de Vida (30%):</strong> Lazer, assinaturas, restaurantes e compras pessoais.</li>
-        <li><strong>Metas e Reserva (20%):</strong> Reserva de emergência, investimentos e quitação de dívidas.</li>
-    </ul>
-    <table>
-        <thead>
-            <tr>
-                 <th scope="col">Descrição</th>
-                 <th scope="col">Categoria</th>
-                 <th scope="col">Valor (R$)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Salário</td>
-                <td>Receita</td>
-                <td>+ 3.500,00</td>
-            </tr>
-            <tr>
-                <td>Mercado</td>
-                <td>Alimentação</td>
-                <td>- 420,50</td>
-            </tr>
-            <tr>
-                <td>Energia</td>
-                <td>Moradia</td>
-                <td>- 185,00</td>
-            </tr>
-        </tbody>
-    </table>
-    <p>Simule juros compostos e o rendimento da sua reserva aqui:
-        <a href="https://www3.bcb.gov.br/CALCIDADAO/" target="_blank" rel="noopener noreferrer"> Calculadora do Cidadão - Banco Central</a>.
-    </p>
+    </header>
+
+    <main>
+        <section aria-labelledby="titulo-resumo">
+            <h2 id="titulo-resumo">Resumo e Categorias do Orçamento</h2>
+            <ul>
+                <li><strong>Essenciais (50%):</strong> Moradia, alimentação, transporte e contas fixas.</li>
+                <li><strong>Estilo de Vida (30%):</strong> Lazer, assinaturas, restaurantes e compras pessoais.</li>
+                <li><strong>Metas e Reserva (20%):</strong> Reserva de emergência, investimentos e quitação de dívidas.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="titulo-movimentacoes">
+            <h2 id="titulo-movimentacoes">Movimentações Financeiras</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Valor (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Salário</td>
+                        <td>Receita</td>
+                        <td>+ 3.500,00</td>
+                    </tr>
+                    <tr>
+                        <td>Mercado</td>
+                        <td>Alimentação</td>
+                        <td>- 420,50</td>
+                    </tr>
+                    <tr>
+                        <td>Energia</td>
+                        <td>Moradia</td>
+                        <td>- 185,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="titulo-nova-transacao">
+            <h2 id="titulo-nova-transacao">Cadastrar Nova Transação</h2>
+
+            <form action="#" method="post">
+
+                <fieldset>
+                    <legend>Dados da Movimentação</legend>
+
+                    <p>
+                        <label for="descricao">Descrição</label><br>
+                        <input
+                            type="text"
+                            id="descricao"
+                            name="descricao"
+                            placeholder="Ex.: Mercado, Aluguel, Salário"
+                            required
+                            maxlength="60"
+                            pattern="[A-Za-zÀ-ÿ0-9 .,\-]{3,60}"
+                            title="Use de 3 a 60 caracteres: letras, números, espaço, ponto, vírgula ou hífen."
+                        >
+                    </p>
+
+                    <p>
+                        <label for="valor">Valor (R$)</label><br>
+                        <input
+                            type="number"
+                            id="valor"
+                            name="valor"
+                            placeholder="Ex.: 150.00"
+                            required
+                            min="0.01"
+                            step="0.01"
+                            inputmode="decimal"
+                            aria-describedby="ajuda-valor"
+                        >
+                        <br>
+                        <small id="ajuda-valor">Informe apenas o valor positivo. O tipo de lançamento define se é receita ou despesa.</small>
+                    </p>
+
+                    <p>
+                        <label for="data">Data da transação</label><br>
+                        <input
+                            type="date"
+                            id="data"
+                            name="data"
+                            required
+                            min="2020-01-01"
+                            max="2030-12-31"
+                        >
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Tipo e Categoria</legend>
+
+                    <fieldset>
+                        <legend>Tipo de lançamento</legend>
+
+                        <p>
+                            <input
+                                type="radio"
+                                id="tipo-receita"
+                                name="tipo"
+                                value="receita"
+                                required
+                            >
+                            <label for="tipo-receita">Receita</label>
+
+                            <input
+                                type="radio"
+                                id="tipo-despesa"
+                                name="tipo"
+                                value="despesa"
+                            >
+                            <label for="tipo-despesa">Despesa</label>
+                        </p>
+                    </fieldset>
+
+                    <p>
+                        <label for="categoria">Categoria</label><br>
+                        <select id="categoria" name="categoria" required>
+                            <option value="" disabled selected>Selecione uma categoria</option>
+                            <option value="alimentacao">Alimentação</option>
+                            <option value="moradia">Moradia</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="salario">Salário</option>
+                            <option value="lazer">Lazer</option>
+                        </select>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Cadastrar transação</button>
+                </p>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Simule juros compostos e o rendimento da sua reserva aqui:
+            <a href="https://www3.bcb.gov.br/CALCIDADAO/" target="_blank" rel="noopener noreferrer"> Calculadora do Cidadão - Banco Central</a>.
+        </p>
+    </footer>
+
 </body>
 </html>
